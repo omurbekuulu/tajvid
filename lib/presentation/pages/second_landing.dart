@@ -7,7 +7,7 @@ class SecondLanding extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color.fromARGB(255, 38, 172, 76),
+        backgroundColor: const Color(0xFF328E19),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

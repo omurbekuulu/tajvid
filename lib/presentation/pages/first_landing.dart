@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tajvid/presentation/pages/last_landing.dart';
 
 class FirstLanding extends StatelessWidget {
   const FirstLanding({super.key});
@@ -7,7 +8,7 @@ class FirstLanding extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color.fromARGB(255, 38, 172, 76),
+        backgroundColor: const Color(0xFF328E19),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -29,34 +30,53 @@ class FirstLanding extends StatelessWidget {
               const SizedBox(height: 40),
               Row(
                 children: [
-                  Container(
-                    margin: const EdgeInsets.only(left: 30),
-                    width: 40,
-                    height: 40,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(100),
+                  const SizedBox(width: 25),
+                  IconButton(
+                    style: const ButtonStyle(
+                      backgroundColor: WidgetStatePropertyAll(Colors.white),
                     ),
-                    child: IconButton(
-                      icon: const Icon(
-                        Icons.arrow_back_ios_new_rounded,
-                        weight: 400,
-                      ),
-                      color: const Color.fromARGB(255, 38, 172, 76),
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
+                    icon: const Icon(
+                      Icons.arrow_back_ios_new_rounded,
+                      weight: 400,
                     ),
+                    color: const Color.fromARGB(255, 38, 172, 76),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                   ),
                   const Spacer(),
                 ],
               ),
               const SizedBox(height: 40),
-              _buildCard('Биринчи болук'),
+              _buildCard(
+                  title: 'Биринчи болук',
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LastLanding()),
+                    );
+                  }),
               const SizedBox(height: 20),
-              _buildCard('Экинчи болук'),
+              _buildCard(
+                  title: 'Экинчи болук',
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LastLanding()),
+                    );
+                  }),
               const SizedBox(height: 20),
-              _buildCard('Учунчу болук'),
+              _buildCard(
+                  title: 'Учунчу болук',
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LastLanding()),
+                    );
+                  }),
               const SizedBox(height: 100),
             ],
           ),
@@ -65,34 +85,39 @@ class FirstLanding extends StatelessWidget {
     );
   }
 
-  Widget _buildCard(String title) {
+  Widget _buildCard({required String title, required Function() onTap}) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30),
-      child: Card(
-        color: Colors.white,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Image.asset(
-              'assets/ornament_second.png',
-              height: 80,
-            ),
-            Text(
-              title,
-              style: const TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-                fontStyle: FontStyle.italic,
+      child: MaterialButton(
+        splashColor: Colors.transparent,
+        highlightColor: Colors.transparent,
+        onPressed: onTap,
+        child: Card(
+          color: Colors.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Image.asset(
+                'assets/ornament_second.png',
+                height: 80,
               ),
-            ),
-            Image.asset(
-              'assets/ornament.png',
-              height: 80,
-            ),
-          ],
+              Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                  fontStyle: FontStyle.italic,
+                ),
+              ),
+              Image.asset(
+                'assets/ornament.png',
+                height: 80,
+              ),
+            ],
+          ),
         ),
       ),
     );

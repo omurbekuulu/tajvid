@@ -63,6 +63,8 @@ flutter:
     - assets/logo_book.png
     - assets/ornament.png
     - assets/ornament_second.png
+    - assets/top_ornament.png
+    - assets/bottom_ornament.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
