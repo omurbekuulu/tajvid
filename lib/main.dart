@@ -7,6 +7,7 @@ void main() {
   runApp(
     const MaterialApp(
       title: 'TAJVID',
+      debugShowCheckedModeBanner: false,
       home: MainLanding(),
     ),
   );
